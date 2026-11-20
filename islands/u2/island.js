@@ -21,6 +21,25 @@ const words=[
  {en:'popcorn',zh:'爆米花',pos:'n.',e:'🍿',d:'market'},
  {en:'music',zh:'音樂',pos:'n.',e:'🎵',d:'market'},
  {en:'vendor',zh:'小販',pos:'n.',e:'🧑‍🍳',d:'market'},
+ // 句型（課本 Grammar）
+ {en:"How does the soup taste?",zh:'湯嚐起來如何？',pos:'句型',e:'🍲',d:'grammar'},
+ {en:"It tastes salty.",zh:'嚐起來有鹹味。',pos:'句型',e:'🧂',d:'grammar'},
+ {en:"How do the vendors look?",zh:'那些小販看起來如何？',pos:'句型',e:'👀',d:'grammar'},
+ {en:"They look friendly.",zh:'他們看起來很親切。',pos:'句型',e:'😊',d:'grammar'},
+ {en:"Do you like sweet bread?",zh:'你喜歡甜麵包嗎？',pos:'句型',e:'🍞',d:'grammar'},
+ {en:"Yes, I like sweet bread.",zh:'是，我喜歡甜麵包。',pos:'句型',e:'👍',d:'grammar'},
+ {en:"No, I don't like loud music.",zh:'不，我不喜歡大聲的音樂。',pos:'句型',e:'🙉',d:'grammar'},
+ {en:"Why don't you like blue popcorn?",zh:'為什麼你不喜歡藍色爆米花？',pos:'句型',e:'🍿',d:'grammar'},
+ {en:"I don't like it because it feels hard.",zh:'我不喜歡，因為它摸起來硬硬的。',pos:'句型',e:'🧱',d:'grammar'},
+ // 會話（課本 Conversation）
+ {en:"You look mad.",zh:'你看起來在生氣。',pos:'會話',e:'😠',d:'talk'},
+ {en:"You sound mad, too.",zh:'你聽起來也很生氣。',pos:'會話',e:'😤',d:'talk'},
+ {en:"What's wrong?",zh:'怎麼了嗎？',pos:'會話',e:'😟',d:'talk'},
+ {en:"I bought this hot dog from that vendor.",zh:'我向那攤販買了熱狗。',pos:'會話',e:'🌭',d:'talk'},
+ {en:"It smells delicious!",zh:'聞起來很香啊！',pos:'會話',e:'😋',d:'talk'},
+ {en:"Why don't you want it?",zh:'你為什麼不想吃？',pos:'會話',e:'🤨',d:'talk'},
+ {en:"Because it tastes like an eraser!",zh:'因為它嚐起來像橡皮擦！',pos:'會話',e:'🧽',d:'talk'},
+ {en:"He'll eat anything!",zh:'牠什麼都吃！',pos:'會話',e:'🐶',d:'talk'},
 ];
 
 const conflict=[['smell great','taste sweet']];
@@ -57,6 +76,12 @@ const stages=[
  {id:'market',chapter:'第三章',topic:'夜市攤販',place:'夜市大街',enemy:'Panda',enemyName:'貪吃貓熊',color:0xffa54a,scale:1.15,
   taunt:'<em>popcorn</em>、<em>bread</em>、<em>soup</em>……夜市的東西我全部吃光光！',
   hero:'說對它們的英文，就叫<em>vendor</em>再做一份！'},
+ {id:'grammar',chapter:'第四章',topic:'句型',place:'試吃攤',enemy:'Alien',enemyName:'挑食外星人',color:0xffd25e,
+  taunt:'<em>How does the soup taste?</em> 我第一次來地球，什麼都不知道！',
+  hero:'<em>It tastes salty.</em> 我教你！'},
+ {id:'talk',chapter:'第五章',topic:'會話',place:'熱狗攤',enemy:'Demon',enemyName:'生氣小惡魔',color:0xff5c5c,
+  taunt:'<em>You look mad.</em> 對！我就是很生氣！這熱狗嚐起來像橡皮擦！',
+  hero:'那就給 Chuck 的狗吃吧！<em>He\'ll eat anything!</em>'},
  {id:'boss',chapter:'終章',topic:'綜合題',place:'骷髏法師王座',enemy:'Skeleton_Mage',enemyName:'骷髏法師王',color:0xb26bff,boss:1,
   taunt:'It <em>tastes</em>？They <em>look</em>？<em>because</em> 怎麼拼？答錯就留在夜市吧！',
   hero:'一個東西用 It、很多個用 They，我都記住了！'},
@@ -67,7 +92,7 @@ const audio={};
 export default {
   id:'u2', name:'夜市島', week:'Unit 2', klass:'', dates:'The Night Market',
   icon:'🏮', color:'#ff7ad9',
-  boss:{words:8, phrases:8},
+  boss:{words:12, phrases:8},
   words, conflict, phrases, bossQ, stages, audio,
   credits:'',
 };

@@ -35,6 +35,24 @@ const words=[
  {en:'studied',zh:'讀書了（study 的過去式）',pos:'v.',e:'📒',d:'past'},
  {en:'washed',zh:'洗了（wash 的過去式）',pos:'v.',e:'🫧',d:'past'},
  {en:'watched',zh:'看了（watch 的過去式）',pos:'v.',e:'👀',d:'past'},
+ // 句型（課本 Grammar）
+ {en:"What did Paul do yesterday?",zh:'Paul 昨天做了什麼？',pos:'句型',e:'❓',d:'grammar'},
+ {en:"He mopped the bathroom yesterday.",zh:'他昨天拖了浴室地板。',pos:'句型',e:'🧽',d:'grammar'},
+ {en:"What did the girls do this morning?",zh:'那些女孩今天早上做了什麼？',pos:'句型',e:'👧',d:'grammar'},
+ {en:"They drew dinosaurs this morning.",zh:'她們今天早上畫了恐龍。',pos:'句型',e:'🦕',d:'grammar'},
+ {en:"Does Susie watch television every day?",zh:'Susie 每天看電視嗎？',pos:'句型',e:'📺',d:'grammar'},
+ {en:"Yes, she watches television every day.",zh:'是，她每天看電視。',pos:'句型',e:'👍',d:'grammar'},
+ {en:"No, they don't drink juice every day.",zh:'不，她們沒有每天喝果汁。',pos:'句型',e:'🧃',d:'grammar'},
+ {en:"Who went to bed late yesterday?",zh:'昨天誰晚睡？',pos:'句型',e:'🌙',d:'grammar'},
+ {en:"Alice went to bed late yesterday.",zh:'Alice 昨天晚睡。',pos:'句型',e:'😴',d:'grammar'},
+ // 會話（課本 Conversation）
+ {en:"What did you do yesterday after school?",zh:'昨天放學後你做了什麼？',pos:'會話',e:'🏫',d:'talk'},
+ {en:"Last night I watched two movies on television.",zh:'昨晚我看了電視播的兩部電影。',pos:'會話',e:'🎬',d:'talk'},
+ {en:"I went to bed really late!",zh:'我很晚才睡！',pos:'會話',e:'🥱',d:'talk'},
+ {en:"I went to bed late, too.",zh:'我也很晚睡。',pos:'會話',e:'🌙',d:'talk'},
+ {en:"What did you do last night?",zh:'你昨晚做了什麼？',pos:'會話',e:'🤔',d:'talk'},
+ {en:"I studied for today's test!",zh:'我在準備今天的考試！',pos:'會話',e:'📝',d:'talk'},
+ {en:"We have a test today?",zh:'我們今天有考試？',pos:'會話',e:'😱',d:'talk'},
 ];
 
 const conflict=[['yesterday','this morning'],
@@ -77,6 +95,12 @@ const stages=[
  {id:'past',chapter:'第三章',topic:'過去式',place:'時光倒流塔',enemy:'Skeleton_Warrior',enemyName:'時間守衛',color:0x8fe06b,
   taunt:'<em>draw</em> 變成什麼？<em>go</em> 變成什麼？說不出過去式，就別想回到昨天！',
   hero:'draw → <em>drew</em>，go → <em>went</em>，簡單！'},
+ {id:'grammar',chapter:'第四章',topic:'句型',place:'問答教室',enemy:'Skull',enemyName:'問題骷髏頭',color:0xffd25e,
+  taunt:'<em>What did Paul do yesterday?</em> 答不出來就別想下課！',
+  hero:'<em>He mopped the bathroom yesterday.</em>'},
+ {id:'talk',chapter:'第五章',topic:'會話',place:'考試前的教室',enemy:'Ghost',enemyName:'熬夜小幽靈',color:0x6fb8ff,
+  taunt:'<em>I went to bed really late!</em> 呼……好睏……',
+  hero:'我昨晚 <em>studied for today\'s test</em>，精神很好！'},
  {id:'boss',chapter:'終章',topic:'綜合題',place:'骷髏法師王座',enemy:'Skeleton_Mage',enemyName:'骷髏法師王',color:0xb26bff,boss:1,
   taunt:'<em>yesterday</em> 要用過去式，<em>every day</em> 不用！還有人名要大寫！看你會不會掉進陷阱！',
   hero:'Paul watched television yesterday！我不會再錯了！'},
@@ -87,7 +111,7 @@ const audio={};
 export default {
   id:'u3', name:'昨天島', week:'Unit 3', klass:'', dates:'What Did You Do?',
   icon:'⏳', color:'#8fe06b',
-  boss:{words:8, phrases:8},
+  boss:{words:12, phrases:8},
   words, conflict, phrases, bossQ, stages, audio,
   credits:'',
 };

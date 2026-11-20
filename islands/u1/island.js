@@ -20,6 +20,22 @@ const words=[
  {en:'staplers',zh:'訂書機',pos:'n.',e:'📎',d:'tools'},
  {en:'scissors',zh:'剪刀',pos:'n.',e:'✂️',d:'tools'},
  {en:'yellow straws',zh:'黃色吸管',pos:'n.',e:'🥤',d:'tools'},
+ // 句型（課本 Grammar）
+ {en:"What do you need?",zh:'你需要什麼？',pos:'句型',e:'❓',d:'grammar'},
+ {en:"I need some blue chalk.",zh:'我需要一些藍色粉筆。',pos:'句型',e:'🖍️',d:'grammar'},
+ {en:"How much purple yarn is there?",zh:'有多少紫色毛線？',pos:'句型',e:'🧶',d:'grammar'},
+ {en:"There is a lot of purple yarn.",zh:'有很多紫色毛線。',pos:'句型',e:'🧶',d:'grammar'},
+ {en:"There is only a little orange paint.",zh:'只有一點點橘色顏料。',pos:'句型',e:'🎨',d:'grammar'},
+ {en:"How many silver stars are there?",zh:'有多少銀色星星？',pos:'句型',e:'⭐',d:'grammar'},
+ {en:"There are a lot of silver stars.",zh:'有很多銀色星星。',pos:'句型',e:'🌟',d:'grammar'},
+ {en:"There are only a few silver stars.",zh:'只有幾顆銀色星星。',pos:'句型',e:'✨',d:'grammar'},
+ // 會話（課本 Conversation）
+ {en:"Look at all these sticks.",zh:'看看這些攪拌棒。',pos:'會話',e:'🥢',d:'talk'},
+ {en:"Let's make something with them.",zh:'我們用這些來做東西吧。',pos:'會話',e:'🛠️',d:'talk'},
+ {en:"How about a picture frame?",zh:'做相框怎麼樣？',pos:'會話',e:'🖼️',d:'talk'},
+ {en:"That sounds boring.",zh:'聽起來很無趣。',pos:'會話',e:'🥱',d:'talk'},
+ {en:"It'll look cool after we decorate it.",zh:'等我們裝飾好就會看起來很酷。',pos:'會話',e:'😎',d:'talk'},
+ {en:"How much stuff do you think we need?",zh:'妳認為我們需要多少材料？',pos:'會話',e:'🤔',d:'talk'},
 ];
 
 const conflict=[['orange paint','paintbrushes'],['silver stars','gold stickers']];
@@ -55,6 +71,12 @@ const stages=[
  {id:'tools',chapter:'第二章',topic:'文具工具',place:'文具櫃迷宮',enemy:'Skeleton_Rogue',enemyName:'偷文具盜賊',color:0x5ed0c9,
   taunt:'<em>scissors</em>、<em>glue</em>、<em>paintbrushes</em>……全部被我偷走啦！',
   hero:'說出它們的英文，就能把文具拿回來！'},
+ {id:'grammar',chapter:'第三章',topic:'句型',place:'句型工坊',enemy:'Cyclops',enemyName:'數數獨眼怪',color:0xffd25e,
+  taunt:'<em>How much</em>？<em>How many</em>？我只有一隻眼睛，數不清楚啦！你幫我說說看！',
+  hero:'There are <em>a lot of</em> silver stars！'},
+ {id:'talk',chapter:'第四章',topic:'會話',place:'做相框的桌子',enemy:'Tree',enemyName:'攪拌棒樹精',color:0x8fe06b,
+  taunt:'<em>Look at all these sticks.</em> 這些攪拌棒都是我的樹枝！',
+  hero:'<em>Let\'s make something with them!</em>'},
  {id:'boss',chapter:'終章',topic:'綜合題',place:'骷髏法師王座',enemy:'Skeleton_Mage',enemyName:'骷髏法師王',color:0xb26bff,boss:1,
   taunt:'<em>How much</em>？<em>How many</em>？<em>a little</em> 還是 <em>a few</em>？我最會讓人搞混了！',
   hero:'數不完用 much、a little，數得出來用 many、a few，我記住了！'},
@@ -65,7 +87,7 @@ const audio={};
 export default {
   id:'u1', name:'美勞島', week:'Unit 1', klass:'', dates:"Let's Make…",
   icon:'🎨', color:'#5ed0c9',
-  boss:{words:8, phrases:8},
+  boss:{words:12, phrases:8},
   words, conflict, phrases, bossQ, stages, audio,
   credits:'',
 };
