@@ -1,0 +1,43 @@
+rules_version = '2';
+// 單字地下城
+// saves/{uid}：跨裝置存檔，只有本人（Google 登入）能讀寫。
+// board/{uid}：排行榜，任何人可讀，只能寫自己那一筆，欄位與數值範圍都要合理。
+// 排行榜只放暱稱與過關數，不放信箱、Google 姓名。
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function googleUser() {
+      return request.auth != null
+        && request.auth.token.firebase.sign_in_provider == 'google.com';
+    }
+    function owner(uid) { return googleUser() && request.auth.uid == uid; }
+
+    function validSave(d) {
+      return d.keys().hasOnly(['data', 'updatedAt'])
+        && d.data is string && d.data.size() <= 300000
+        && d.updatedAt == request.time;
+    }
+    match /saves/{uid} {
+      allow get: if owner(uid);
+      allow create, update: if owner(uid) && validSave(request.resource.data);
+      allow delete: if owner(uid);
+      allow list: if false;
+    }
+
+    function validBoard(d) {
+      return d.keys().hasOnly(['name', 'cleared', 'stars', 'hero', 'lv', 'updatedAt'])
+        && d.name is string && d.name.size() >= 1 && d.name.size() <= 12
+        && d.cleared is int && d.cleared >= 0 && d.cleared <= 600
+        && d.stars is int && d.stars >= d.cleared && d.stars <= d.cleared * 3
+        && d.hero is string && d.hero.size() <= 20
+        && d.lv is int && d.lv >= 1 && d.lv <= 50
+        && d.updatedAt == request.time;
+    }
+    match /board/{uid} {
+      allow read: if true;
+      allow create, update: if owner(uid) && validBoard(request.resource.data);
+      allow delete: if owner(uid);
+    }
+
+    match /{document=**} { allow read, write: if false; }
+  }
+}

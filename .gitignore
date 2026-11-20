@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# 編輯器
+.vscode/
+.idea/
+*.swp
+
+# 環境變數／金鑰
+.env
+.env.*
+
+# 相依套件與建置產物（若之後加 build 流程）
+node_modules/
+dist/
+.cache/
+
+# 暫存
+temp/
+tmp/
+*.log
+.vercel
+
+# Firebase CLI
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Claude Code 本機設定
+.claude/

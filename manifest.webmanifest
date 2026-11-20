@@ -1,0 +1,19 @@
+{
+  "name": "單字地下城",
+  "short_name": "單字地下城",
+  "description": "國小英文每週單字的 3D 地下城闖關遊戲",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#121118",
+  "theme_color": "#121118",
+  "lang": "zh-Hant",
+  "dir": "ltr",
+  "categories": ["education", "games"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
